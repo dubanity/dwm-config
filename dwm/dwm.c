@@ -1989,37 +1989,11 @@ updatesizehints(Client *c)
 	c->isfixed = (c->maxw && c->maxh && c->maxw == c->minw && c->maxh == c->minh);
 }
 
-char* 
-exec(const char *cmd)
-{
-	char pipeBuffer[1024];
-    char *result = "";
-    char *streamBuffer;
-    size_t szstreamBuffer = 0;
-    FILE *stream = open_memstream(&streamBuffer, &szstreamBuffer);
-    FILE *pipe = popen(cmd, "r");
-    while (fgets(pipeBuffer, sizeof(pipeBuffer), pipe) != NULL)
-    {
-        fprintf(stream, pipeBuffer);
-    }
-    fclose(stream);
-    result = streamBuffer;
-    pclose(pipe);
-    return result;
-}
-
 void
 updatestatus(void)
 {
 	if (!gettextprop(root, XA_WM_NAME, stext, sizeof(stext)))
 	{
-		//strcpy(stext, "dwm-"VERSION);
-		//char *ptag = exec("echo pkgs: $(pacman -Qq | wc -l)");
-		//char pkgs[1024];
-		//char o_buffer[2048];
-		//strcpy(pkgs, ptag);
-		//strcat(o_buffer, pkgs);
-		//strcpy(stext, o_buffer);
 		strcpy(stext, "");
 	}
 	drawbar(selmon);
