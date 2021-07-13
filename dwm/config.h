@@ -7,7 +7,7 @@ static const int horizpadbar        = 2;
 static const int vertpadbar         = 5;
 static const int vertpad            = 0;
 static const int sidepad            = 0;
-static const char *fonts[]          = { "Iosevka Nerd Font Regular:size=11" };
+static const char *fonts[]          = { "RobotoMono Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_black[] 	    = "#000000";
 static const char col_gray1[]       = "#222222";
