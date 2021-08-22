@@ -15,7 +15,7 @@ static const char col_blurple[]     = "#616687";
 static const char col_purple[]      = "#1f2532";
 static const char col_bblurple[]    = "#8b93c2";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
+	/*               fg         bg            border   */
 	[SchemeNorm] = { col_blurple, col_purple, col_black },
 	[SchemeSel]  = { col_bblurple, col_purple,  col_blurple  },
 };
@@ -28,9 +28,9 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55;
-static const int nmaster     = 1;
-static const int resizehints = 1;
+static const float mfact        = 0.55;
+static const int nmaster        = 1;
+static const int resizehints    = 1;
 static const int lockfullscreen = 1;
 
 static const Layout layouts[] = {
