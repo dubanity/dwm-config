@@ -1,14 +1,10 @@
-static const unsigned int borderpx  = 2;
-static const unsigned int gappx	    = 15;
+static const unsigned int borderpx  = 1;
+static const unsigned int gappx     = 15;
 static const unsigned int snap      = 15;
 static const int showbar            = 1;
 static const int topbar             = 1;
-static const int horizpadbar        = 2;
-static const int vertpadbar         = 5;
-static const int vertpad            = 0;
-static const int sidepad            = 0;
-static const char *fonts[]          = { "RobotoMono Nerd Font:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
+static const char *fonts[]          = { "NotoSansMono Nerd Font:size=11" };
+static const char dmenufont[]       = "NotoSansMono Nerd Font:size=11";
 static const char col_black[] 	    = "#000000";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -28,19 +24,20 @@ static const char *tags[] = { "I", "II", "III", "IV", "V" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Element",  NULL,       NULL,       1 << 0,       0,           -1 },
-	{ "discord",  NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "Brave",    NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "Application",  NULL,    NULL,       0 << 1,          0,           -1 },
 };
 
+/* layout(s) */
 static const float mfact     = 0.55;
 static const int nmaster     = 1;
 static const int resizehints = 1;
+static const int lockfullscreen = 1;
 
 static const Layout layouts[] = {
-	{ 0x00,    tile },
-	{ 0x00,    NULL }, 
-	{ 0x00,    monocle },
+	/* symbol     arrange function */
+	{ "",      tile },
+	{ "",      NULL },
+	{ "",      monocle },
 };
 
 #define MODKEY Mod1Mask
@@ -50,13 +47,11 @@ static const Layout layouts[] = {
 	{ MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
-/* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* commands */
-static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
+static char dmenumon[2] = "0";
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "/usr/bin/alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -100,7 +95,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
-/* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
