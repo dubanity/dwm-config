@@ -15,7 +15,7 @@ static const char col_blurple[]     = "#616687";
 static const char col_purple[]      = "#1f2532";
 static const char col_bblurple[]    = "#8b93c2";
 static const char *colors[][3]      = {
-	/*               fg         bg            border   */
+	/*               fg         bg         border   */
 	[SchemeNorm] = { col_blurple, col_purple, col_black },
 	[SchemeSel]  = { col_bblurple, col_purple,  col_blurple  },
 };
@@ -24,13 +24,13 @@ static const char *tags[] = { "I", "II", "III", "IV", "V" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Application",  NULL,    NULL,       0 << 1,          0,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
-/* layout(s) */
-static const float mfact        = 0.55;
-static const int nmaster        = 1;
-static const int resizehints    = 1;
+static const float mfact     = 0.55;
+static const int nmaster     = 1;
+static const int resizehints = 1;
 static const int lockfullscreen = 1;
 
 static const Layout layouts[] = {
@@ -95,7 +95,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
-/* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
